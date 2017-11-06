@@ -9,9 +9,9 @@ Groups are collections of [users](user.md) and other principals who share access
 | Office 365 groups | Facilitating user collaboration with shared Microsoft online resources. | ["Unified"] | true | false | yes | [user](user.md) | 
 | Security groups | Controlling user access to in-app resources. | [] | false | true | yes |
 | Mail-enabled security groups | Controlling user access to in-app resources, with a shared group mailbox. | [] | true | true | no |
-| Distribution groups | Distributing mail to the members of the group. It is recommended to use Office 365 groups due to the richer set of resources it provides. | [] | true | false | yes |
+| Distribution groups | Distributing mail to the members of the group. It is recommended to use Office 365 groups due to the richer set of resources it provides. | [] | true | false | no |
 
-## Office 365 groups in Outlook
+## Office 365 groups
 The power of Office 365 groups is in its collaborative nature, perfect for people who work together on a project or a team. They are created with resources that members of the group share including:
 
 - Outlook conversations
@@ -29,7 +29,8 @@ Other resources that are created but not accessible through the API include:
 - Microsoft Stream
 - Microsoft StaffHub
 
-### Example of Office 365 group in Outlook
+### Example of an Outlook group
+
 ```http
 
 {
@@ -77,7 +78,7 @@ Mail-enabled security groups are used in the same way as security groups are, bu
     "groupTypes": [],
     "mail": null,
     "mailEnabled": false,
-    "mailNickname": "mysg",
+    "mailNickname": "",
     "preferredLanguage": null,
     "proxyAddresses": [],
     "securityEnabled": true
