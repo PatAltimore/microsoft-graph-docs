@@ -255,6 +255,39 @@ For more complex scenarios involving multiple permissions, see [Permission scena
 
 ---
 
+## Education Graph permissions
+
+#### Delegated permissions
+
+|Permission |Display String |Description | Admin Consent Required |
+|:--------- |:------------- |:---------- | :--------------------- |
+|EduAssignments.ReadBasic | Read users' class assignments without grades | Allows the app to read assignments without grades on behalf of the user | Yes |
+|EduAssignments.ReadWriteBasic | Read and write users' class assignments without grades | Allows the app to read and write assignments without grades on behalf of the user | Yes |
+|EduAssignments.Read | Read users' view of class assignments and their grades | Allows the app to read assignments and their grades on behalf of the user| Yes |
+|EduAssignments.ReadWrite | Read and write users' view of class assignments and their grades | Allows the app to read and write assignments and their grades on behalf of the user|Yes |
+|EduRostering.ReadBasic| Read a limited subset of users' view of the roster | Allows the app to read a limited subset of the data from the  structure of schools and classes in an organization's roster and  education-specific information about users to be read on behalf of the user.  | Yes  |
+
+
+#### Application permissions
+
+| Permission | Display String | Description | Admin Consent Required |
+| :--------- | :------------- | :---------- | :--------------------- |
+|EduAssignments.ReadBasic.All| Read class assignments without grades|Allows the app to read assignments without grades for all users| Yes |
+|EduAssignments.ReadWriteBasic.All | Read and write class assignments without grades | Allows the app to read and write assignments without grades for all users| Yes |
+|EduAssignments.Read.All| Read class assignments with grades | Allows the app to read assignments and their grades for all users | Yes |
+|EduAssignments.ReadWrite.All | Read and write class assignments with grades | Allows the app to read and write assignments and their grades for all users | Yes |
+|EduRostering.ReadBasic.All | Read a limited subset of the organization's roster. | Allows the app to read a limited subset of both the structure of schools and classes in an organization's roster and education-specific information about all users. | Yes |
+|EduRostering.Read.All | Read the organization's roster. | Allows the app to read the structure of schools and classes in the organization's roster and education-specific information about all users to be read. | Yes |
+|EduRostering.ReadWrite.All| Read and write the organization's roster. | Allows the app to read and write the structure of schools and classes in the organization's roster and education-specific information about all users to be read and written.  | Yes |
+
+### Example usage
+
+#### Delegated
+
+* _EduAssignments.Read_: Get the signed-in user's assignment (`GET /education/classes/<id>/assignments/<id>`)
+
+For more complex scenarios involving multiple permissions, see [Permission scenarios](#permission-scenarios).
+
 ## Files permissions
 
 #### Delegated permissions
