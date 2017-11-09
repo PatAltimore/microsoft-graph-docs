@@ -4,9 +4,9 @@ Microsoft Graph exposes granular permissions that control the access that apps h
 ## Delegated permissions, Application permissions, and effective permissions
 Microsoft Graph has two types of permissions: **delegated permissions** and **application permissions**. 
 
-- **Delegated permissions** are used by apps that have a signed-in user present. For these apps either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to Microsoft Graph. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require administrator consent.  
+- **Delegated permissions** are used by apps that have a signed-in user present. For these apps either the user or an administrator consents to the permissions that the app requests and the app is delegated permission to act as the signed-in user when making calls to Microsoft Graph. Some delegated permissions can be consented to by non-administrative users, but some higher-privileged permissions require [administrator consent](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#admin-restricted-scopes).  
 
-- **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be consented by an administrator. 
+- **Application permissions** are used by apps that run without a signed-in user present; for example, apps that run as background services or daemons.  Application permissions can only be [consented by an administrator](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-v2-scopes#requesting-consent-for-an-entire-tenant). 
 
 _Effective permissions_ are the permissions that your app will have when making requests to Microsoft Graph. It is important to understand the difference between the delegated and application permissions that your app is granted and its effective permissions when making calls to Microsoft Graph.
 
@@ -284,7 +284,9 @@ For more complex scenarios involving multiple permissions, see [Permission scena
 
 #### Delegated
 
-* _EduAssignments.Read_: Get the signed-in user's assignment (`GET /education/classes/<id>/assignments/<id>`)
+* _EduAssignments.Read_: Get the signed-in student's assignment information(`GET /education/classes/<id>/assignments/<id>`)
+* _EduAssignments.ReadWriteBasic_: Submit signed-in student assignment(`GET /education/classes/<id>/assignments/<id>submit`)
+* _EduRoster.ReadBasic_: Classes a signed-in user attends or teaches(`GET /education/classes/<id>/members`)
 
 For more complex scenarios involving multiple permissions, see [Permission scenarios](#permission-scenarios).
 
