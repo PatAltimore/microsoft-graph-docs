@@ -88,7 +88,7 @@ Mail-enabled security groups are used in the same way as security groups are, bu
 All types of groups can have dynamic membership rules which automatically add or remove members from the group based on user properties. For example, a "Marketing employees" group would include every user with the department property set to "Marketing", so that new marketing employees are automatically added to the group and employees who leave the department are automatically removed from the group. This rule can be specified in a "membershipRule" field during group creation as ```"membershipRule": 'user.department -eq "Marketing"'``` GroupType must also include ```"DynamicMembership"```. The following request creates a new Office 365 group for the marketing employees: 
 
 ```http
-POST https://graph.microsoft.com/v1.0/groups
+POST https://graph.microsoft.com/beta/groups
 {
     "description": "Marketing department folks",
     "displayName": "Marketing department",
@@ -110,7 +110,7 @@ Learn more about formulating membershipRules in [advanced rules](https://docs.mi
 
 ## Other types of groups
 
-Office 365 groups in Yammer are used to facilitate user collaboration through Yammer posts. This type of group can be returned through a read request, but their posts can't be accessed through the API. To learn more, see [Yammer developer API docs](https://developer.yammer.com/docs).
+Office 365 groups in Yammer are used to facilitate user collaboration through Yammer posts. This type of group can be returned through a read request, but their posts can't be accessed through the API. When Yammer posts and conversation feeds are enabled on a group, default Office 365 group conversations are disabled. To learn more, see [Yammer developer API docs](https://developer.yammer.com/docs).
 
 ## Common use cases
 
