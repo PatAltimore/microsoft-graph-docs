@@ -1,8 +1,8 @@
-# OneNote API error and warning codes
+# Error codes for OneNote APIs in Microsoft Graph
 
-This article describes error and warning codes that are returned by the OneNote API whenever a request sent through the API fails.
+This article describes error codes that are returned by the OneNote APIs in Microsoft Graph whenever a request sent through the API fails.
 
-## Error and warning responses
+## Error response example
 When your request generates an error, the OneNote API stops performing the request and returns an error response as a JSON object. An error response contains the associated error code, a message, and a link to the appropriate section of this article. The following example shows how an error response looks.
 
 ```json
@@ -18,9 +18,7 @@ When your request generates an error, the OneNote API stops performing the reque
 }
 ```
 
-For more information about Graph errors, see [Microsoft Graph error responses and resource types](errors.md).
-
-If you need to work with Microsoft support to resolve any issues, be sure to also log the [X-CorrelationId header](#x-correlationid-header) and timestamp of the API call.
+For more information about Microsoft Graph errors, see [Microsoft Graph error responses and resource types](errors.md).
 
 ## Codes from 10001 to 19999
 The service is having problems or is sending information to the application.
@@ -76,68 +74,67 @@ The request failed because an undetermined error occurred.
 The application code has done something wrong.
 
 ### 20001
-The request is missing the required "Presentation" part. Exactly one is required. See [OneNote API reference][ref].
+
+The request is missing the required "Presentation" part. Exactly one is required. 
 
 ### 20002
-The request contains two or more "Presentation" parts. Exactly one is required. See [OneNote API reference][ref].
+The request contains two or more "Presentation" parts. Exactly one is required.
 
 ### 20003
-The content type of the "Presentation" part can be only text/html or application/xhtml+xml. See [OneNote API reference][ref].
+The content type of the "Presentation" part can be only text/HTML or application/XHTML+XML. 
 
 ### 20004
-The "Presentation" part HTML contains an image tag with both the **src** and the **data-render-src** properties set. The API will ignore the **src** property and use the **data-render-src** property. See [OneNote API reference][ref].
+The "Presentation" part HTML contains an image tag with both the **src** and the **data-render-src** properties set. The API will ignore the **src** property and use the **data-render-src** property. 
 
 ### 20005
 The request URI is too long. The maximum size of the URI (including all parameters and data) is 16 KB or 16,384 characters.
 
 ### 20006
-The "Presentation" part HTML contains an image tag with neither the src nor the **data-render-src** properties set. The API will ignore the **image** tag. See [OneNote API reference][ref].
+The "Presentation" part HTML contains an image tag with neither the src nor the **data-render-src** properties set. The API will ignore the **image** tag. 
 
 ### 20007
-The "Presentation" part HTML contains a created date/time string that does not match any of the allowed formats. See [OneNote API reference][ref].
+The "Presentation" part HTML contains a created date/time string that does not match any of the allowed formats. 
 
 ### 20008
-The size of the request is too large. See [OneNote API reference][ref].
+The size of the request is too large. 
 
 ### 20009
-The request contains parts with duplicate names. Part names must be unique. See [OneNote API reference][ref] for more information on how to construct multipart requests.
+The request contains parts with duplicate names. Part names must be unique. 
 
 ### 20010
-The Content-Disposition header was not supplied for the specified content type. See [OneNote API reference][ref] for more information on how to construct multipart requests.
+The Content-Disposition header was not supplied for the specified content type. 
 
 ### 20011
-The request contains a malformed multipart payload. Problems could include missing blank lines, a missing last line, incorrectly formatted part separators, and so on. If you're building the multipart message by hand, carefully check the logic, or consider using a third-party library. See [OneNote API reference][ref] for more information on how to construct a multipart payload.
+The request contains a malformed multipart payload. Problems could include missing blank lines, a missing last line, incorrectly formatted part separators, and so on. If you're building the multipart message by hand, carefully check the logic, or consider using a third-party library. 
 
 ### 20012
-The request doesn't supply a content type for the specified part. See [OneNote API reference][ref] for more information on how to construct a part.
-
+The request doesn't supply a content type for the specified part. 
 ### 20013
 The request doesn't supply Content-Type and Content-Disposition headers for the specified part. 
 
 ### 20014
-The length of a part in the multipart message exceeds the maximum size of 25 MB. See [OneNote API reference][ref].
+The length of a part in the multipart message exceeds the maximum size of 25 MB. 
 
 ### 20015
-The count of parts in the multipart message exceeds the limit of 500. See [OneNote API reference][ref].
+The count of parts in the multipart message exceeds the limit of 500. 
 
 ### 20016
-The length of the multipart message exceeds the limit of 75 MB. See [OneNote API reference][ref].
+The length of the multipart message exceeds the limit of 75 MB. 
 
 ### 20017
-The email MIME was malformed. See [OneNote API reference][ref].
+The email MIME was malformed. 
 
 ### 20018
-The meeting MIME or ICal was malformed. See [OneNote API reference][ref].
+The meeting MIME or ICal was malformed. 
 
 ### 20019
-No ICal was found. See [OneNote API reference][ref].
+No ICal was found. 
 
 ### 20020
-Encountered malformed Json in request body. See [OneNote API reference][ref].
+Encountered malformed Json in request body. 
 
 ### 20100
-Something is wrong with the syntax of your request. See [OneNote API reference][ref] for more information, and check to make sure that you have constructed your request correctly.
-
+Something is wrong with the syntax of your request. 
 ### 20101
 The property that you requested doesn't exist.
 
@@ -156,7 +153,7 @@ GET ../pages/{id}?pagelevel=true
 ```
 
 ### 20106
-Your request contains a query operator that is not supported. See [OneNote API reference][ref].
+Your request contains a query operator that is not supported. 
 
 ### 20108
 Your request contains unsupported OData query parameters.
@@ -165,7 +162,7 @@ Your request contains unsupported OData query parameters.
 The payload in the PATCH request is not constructed correctly.
 
 ### 20110
-Page create requests with data parts require the content to be multipart, with a "Presentation" part. See [OneNote API reference][ref].
+Page create requests with data parts require the content to be multipart, with a "Presentation" part. 
 
 ### 20111
 Your request uses an OData feature that isn't supported.
@@ -189,19 +186,19 @@ The HTML in the "Presentation" part contains a **data-attachment** attribute tha
 Your request specifies a PATCH target that can't be located.
 
 ### 20121
-Your request contains an invalid PATCH argument. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+Your request contains an invalid PATCH argument. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20122
-Your request specifies an unsupported PATCH action. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+Your request specifies an unsupported PATCH action. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20123
 The PATCH request is unable to alter the specified page.
 
 ### 20124
-Your multipart PATCH request doesn't include a "commands" part with the PATCH action JSON structure. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+Your multipart PATCH request doesn't include a "commands" part with the PATCH action JSON structure. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20125
-Your PATCH request contains no actions. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+Your PATCH request contains no actions. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20126
 The message body contains either incorrectly formatted JSON or fields that are not supported for this operation.
@@ -219,19 +216,19 @@ Your request contains a **top** query string option whose value is too high. For
 Your request contains a URI that points to an HTTP resource that can't be found.
 
 ### 20131
-Your request contains an invalid value for Content-Type. Use the value indicated in the message. See [OneNote API reference][ref].
+Your request contains an invalid value for Content-Type. Use the value indicated in the message. 
 
 ### 20132
-Your request contains invalid content. Common causes for this are a missing Content-Type request header and/or no content in the body of the request. See [OneNote API reference][ref].
+Your request contains invalid content. Common causes for this are a missing Content-Type request header and/or no content in the body of the request. 
 
 ### 20133
-Your request specifies a PATCH target that is not supported. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+Your request specifies a PATCH target that is not supported. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20134
-Your request specifies an invalid element as the target of the PATCH action. If the target uses the **data-id** identifier, make sure it's prefixed with a # symbol. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+Your request specifies an invalid element as the target of the PATCH action. If the target uses the **data-id** identifier, make sure it's prefixed with a # symbol. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20135
-Your request specifies an entity type that is not supported for the PATCH operation. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+Your request specifies an entity type that is not supported for the PATCH operation. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20136
 Your request contains an invalid or missing **data-render-src** or **data-render-method** attribute. See [Extract data from captures](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-extract-data).
@@ -240,7 +237,7 @@ Your request contains an invalid or missing **data-render-src** or **data-render
 The target page does not support PATCH requests.
 
 ### 20138
-The target element type in your PATCH request doesn't support the **append** action. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+The target element type in your PATCH request doesn't support the **append** action. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20139
 Your request contains an invalid **data-tag** attribute value. See [Use note tags](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-note-tags).
@@ -253,7 +250,7 @@ Your request contains an invalid **data-tag** status value. Check box note tags 
 See [Use note tags](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-note-tags).
 
 ### 20141
-The target in your PATCH request doesn't support the specified action. See [Update page content](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-update-page).
+The target in your PATCH request doesn't support the specified action. See [Update page content](../api-reference/v1.0/api/page_update.md).
 
 ### 20142
 Your request contains an **expand** expression for a parent of child entities or a child of parent entities, which is not supported. See [Supported OData query string options](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-get-content#query-options).
@@ -280,10 +277,10 @@ The `style="position:absolute"` attribute is specified on an element type that d
 Your request specifies a target element that cannot be found.
 
 ### 20150
-The request is not valid for this authentication type. Use the `../me/notes/` path instead.
+The request is not valid for this authentication type. Use the `../me/onenote/` path instead.
 
 ### 20151
-The request is not valid for this authentication type. Use the `../me/notes/section/{id}/pages` endpoint to create a page in a specific section.
+The request is not valid for this authentication type. Use the `../me/onenote/section/{id}/pages` endpoint to create a page in a specific section.
 
 ### 20152
 There is no name value specified for the entity. The name must be defined, and it cannot contain whitespaces only.
@@ -314,11 +311,11 @@ The context does not specify a valid user ID. One common error is that PUID/CID 
 
 ### 20166
 The application has issued too many requests on behalf of a user in a short period of time. To help ensure that the OneNote API remains stable and responsive, the API returns a 429 status code and this error when it detects that an application is using too many resources. 
-  For more information, see [OneNote API throttling and how to avoid it](http://blogs.msdn.com/b/onenotedev/archive/2016/01/13/onenote-api-throttling-and-best-practices.aspx).
+
+For more information, see [OneNote API throttling and how to avoid it](http://blogs.msdn.com/b/onenotedev/archive/2016/01/13/onenote-api-throttling-and-best-practices.aspx).
 
 ### 20168
 The video source specified in the request is not supported. See [Supported video sites](https://msdn.microsoft.com/en-us/office/office365/howto/onenote-images-files#videos) for the current list.
-
 
 
 ## Codes from 30001 to 39999
@@ -343,7 +340,7 @@ The user's personal OneDrive for Business site is not provisioned, which is requ
 OneDrive for Business is being provisioned for the user.
 
 ### 30108
-The user's personal OneDrive for Business could not be retrieved. Here are some possible causes.
+The user's personal OneDrive for Business could not be retrieved. The following table lists some possible causes.
 
 | Cause | Resolution |
 |:------|:------|
@@ -374,7 +371,7 @@ There is a required parameter missing.
 The user or application does not have the correct permissions.
 
 ### 40001
-The request doesn't contain a valid OAuth token. See [OneNote authentication and permissions](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference#notes-permissions).
+The request doesn't contain a valid OAuth token. See [Notes permissions](permissions_reference.md#notes-permissions).
 
 ### 40002
 The user doesn't have permission to write to the requested location.
@@ -383,10 +380,10 @@ The user doesn't have permission to write to the requested location.
 The user doesn't have permission to access the requested resource.
 
 ### 40004
-The OAuth token doesn't have the required scopes to perform the requested action. See [OneNote authentication and permissions](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference#notes-permissions).
+The OAuth token doesn't have the required scopes to perform the requested action. See [Notes permissions](permissions_reference.md#notes-permissions).
 
 ### 40006 
-The OAuth token doesn't have the required scopes to perform the requested action. Specifically the edit permission. See [OneNote authentication and permissions](https://developer.microsoft.com/en-us/graph/docs/concepts/permissions_reference#notes-permissions).
+The OAuth token doesn't have the required scopes to perform the requested action. Specifically the edit permission. See [Notes permissions](permissions_reference.md#notes-permissions).
 
 ### 40007
 The user does not have permissions to access this resource.
@@ -397,25 +394,8 @@ Access is Forbidden for this resource.
 ### 40009
 The container is already in use by another resource.
 
-## X-CorrelationId header
-In addition to standard HTTP response codes, the OneNote API returns headers to the calling app. Included in every response is an **X-CorrelationId** header and a **Date** header, as shown in the following excerpt:
+## See also
 
-```http
-X-CorrelationId: d2d6aaf5-3bde-4ee7-ba18-27727bf3cffe
-Date: Fri, 06 Mar 2015 15:10:46 GMT
-```
+- [Microsoft Graph error responses and resource types](errors.md)
+- [OneNote reference](../api-reference/v1.0/resources/onenote.md)
 
-The correlation ID is a GUID that ties together the various pieces in the backend servers. Correlation IDs are not sequential, which means you can't use them to establish an order of page creation.
- 
-Your app can log the correlation ID and date of your API calls. You can use these values if you need to work with Microsoft support to resolve problems in your app or with the API.
-
-## Additional resources
-
-# BROKEN
-- [OneNote development](onenote_integrate_with_onenote.md)
-- [OneNote Dev Center](http://dev.onenote.com/)
-- [OneNote Developer Blog](http://go.microsoft.com/fwlink/?LinkID=390183)
-- [OneNote development questions on Stack Overflow](http://go.microsoft.com/fwlink/?LinkID=390182) 
-- [OneNote GitHub repos](http://go.microsoft.com/fwlink/?LinkID=390178)
-
-[ref]: http://dev.onenote.com/docs
