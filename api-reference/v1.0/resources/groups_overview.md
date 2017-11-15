@@ -85,7 +85,7 @@ Mail-enabled security groups are used in the same way as security groups are, bu
 }
 ```
 ## Dynamic membership 
-All types of groups can have dynamic membership rules which automatically add or remove members from the group based on user properties. For example, a "Marketing employees" group would include every user with the department property set to "Marketing", so that new marketing employees are automatically added to the group and employees who leave the department are automatically removed from the group. This rule can be specified in a "membershipRule" field during group creation as ```"membershipRule": 'user.department -eq "Marketing"'``` GroupType must also include ```"DynamicMembership"```. The following request creates a new Office 365 group for the marketing employees: 
+All types of groups can have dynamic membership rules which automatically add or remove members from the group based on user properties. For example, a "Marketing employees" group would include every user with the department property set to "Marketing", so that new marketing employees are automatically added to the group and employees who leave the department are automatically removed from the group. This rule can be specified in a "membershipRule" field during group creation as `"membershipRule": 'user.department -eq "Marketing"'` GroupType must also include `"DynamicMembership"`. The following request creates a new Office 365 group for the marketing employees: 
 
 ```http
 POST https://graph.microsoft.com/beta/groups
