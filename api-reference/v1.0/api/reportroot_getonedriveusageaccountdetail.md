@@ -1,10 +1,8 @@
-# reportRoot: getMailboxUsageQuotaMailboxStatusCounts
+# reportRoot: getOneDriveUsageAccountDetail
 
-> **Important:** APIs under the /beta version in Microsoft Graph are in preview and are subject to change. Use of these APIs in production applications is not supported.
+Get details about OneDrive usage by account.
 
-Get the count of user mailboxes in each quota category.
-
-> **Note:** For details about different report views and names, see [Office 365 Reports - Mailbox usage](https://support.office.com/client/Mailbox-usage-beffbe01-ce2d-4614-9ae5-7898868e2729).
+> **Note:** For details about different report views and names, see [Office 365 Reports - OneDrive for Business usage](https://support.office.com/client/OneDrive-for-Business-usage-0de3b312-c4e8-4e4b-a02d-32b2f726a680).
 
 ## Permissions
 
@@ -21,22 +19,27 @@ One of the following permissions is required to call this API. To learn more, in
 <!-- { "blockType": "ignored" } --> 
 
 ```http
-GET /reports/getMailboxUsageQuotaMailboxStatusCounts(period='{period_value}')
+GET /reports/getOneDriveUsageAccountDetail(period='{period_value}')
+GET /reports/getOneDriveUsageAccountDetail(date={date_value})
 ```
 
 ## Request parameters
 
-In the request URL, provide the following query parameter with a valid value.
+In the request URL, provide the chosen query parameter with a valid value.
 
 | Parameter | Type   | Description                              |
 | :-------- | :----- | :--------------------------------------- |
-| period    | string | Specifies the aggregate type. The supported values for {period_value} are: D7, D30, D90, and D180. These values follow the format D*n* where *n* represents the number of days over which the report is aggregated. Required. |
+| period    | string | Specifies the length of time over which the report is aggregated. The supported values for {period_value} are: D7, D30, D90, and D180. These values follow the format D*n* where *n* represents the number of days over which the report is aggregated. |
+| date      | Date   | Specifies the date for which you would like to view the users who performed any activity. {date_value} must have a format of YYYY-MM-DD. As this report is only available for the past 30 days, {date_value} should be a date from that range. |
+
+> **Note:** You need to set either period or date in the URL.
 
 ## Request headers
 
 | Name          | Description               |
 | :------------ | :------------------------ |
 | Authorization | Bearer {token}. Required. |
+| If-None-Match | If this request header is included and the eTag provided matches the current tag on the file, a `304 Not Modified` response code is returned. Optional. |
 
 ## Response
 
@@ -47,12 +50,14 @@ Preauthenticated download URLs are only valid for a short period of time (a few 
 The CSV file has the following headers for columns.
 
 - Report Refresh Date
-- Under Limit
-- Warning Issued
-- Send Prohibited
-- Send/Receive Prohibited
-- Indeterminate
-- Report Date
+- Site URL
+- Owner Display Name
+- Is Deleted
+- Last Activity Date
+- File Count
+- Active File Count
+- Storage Used (Byte)
+- Storage Allocated (Byte)
 - Report Period
 
 ## Example
@@ -63,11 +68,11 @@ The following is an example of the request.
 
 <!-- {
   "blockType": "request",
-  "name": "reportroot_getmailboxusagequotamailboxstatuscounts"
+  "name": "reportroot_getonedriveusageuserdetail"
 }-->
 
 ```http
-GET https://graph.microsoft.com/beta/reports/getMailboxUsageQuotaMailboxStatusCounts(period='D7')
+GET https://graph.microsoft.com/v1.0/reports/getOneDriveUsageAccountDetail(period='D7')
 ```
 
 #### Response
@@ -94,5 +99,5 @@ Follow the 302 redirection and the CSV file that downloads will have the followi
 HTTP/1.1 200 OK
 Content-Type: application/octet-stream
 
-Report Refresh Date,Under Limit,Warning Issued,Send Prohibited,Send/Receive Prohibited,Indeterminate,Report Date,Report Period
+Report Refresh Date,Site URL,Owner Display Name,Is Deleted,Last Activity Date,File Count,Active File Count,Storage Used (Byte),Storage Allocated (Byte),Report Period
 ```
