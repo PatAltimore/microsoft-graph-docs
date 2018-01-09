@@ -6,9 +6,9 @@ Groups are collections of [users](user.md) and other principals who share access
 
 | Type              | Use case | groupType | mail-enabled | security-enabled | Creation possible through API? |
 |-------------------|----------|-----------|--------------|------------------|--------------------------------|
-| Office 365 groups | Facilitating user collaboration with shared Microsoft online resources. | ["Unified"] | true | false | yes | [user](user.md) | 
-| Security groups | Controlling user access to in-app resources. | [] | false | true | yes |
-| Mail-enabled security groups | Controlling user access to in-app resources, with a shared group mailbox. | [] | true | true | no |
+| [Office 365 groups](#office-365-groups) | Facilitating user collaboration with shared Microsoft online resources. | ["Unified"] | true | false | yes | [user](user.md) |
+| [Security groups](#security-groups-and-mail-enabled-security-groups) | Controlling user access to in-app resources. | [] | false | true | yes |
+| [Mail-enabled security groups](#security-groups-and-mail-enabled-security-groups) | Controlling user access to in-app resources, with a shared group mailbox. | [] | true | true | no |
 | Distribution groups | Distributing mail to the members of the group. It is recommended to use Office 365 groups due to the richer set of resources it provides. | [] | true | false | no |
 
 ## Office 365 groups
@@ -22,14 +22,7 @@ The power of Office 365 groups is in its collaborative nature, perfect for peopl
 - Planner
 - Intune device management
 
-Other resources that are created but not accessible through the API include: 
-
-- Dynamics CRM
-- Microsoft Social Engagement
-- Microsoft Stream
-- Microsoft StaffHub
-
-### Example of an Outlook group
+### Example of groups in Outlook
 
 ```http
 
@@ -39,7 +32,7 @@ Other resources that are created but not accessible through the API include:
     "deletedDateTime": null,
     "classification": "MBI",
     "createdDateTime": "2016-08-23T14:46:56Z",
-    "description": "This is an Outlook group",
+    "description": "This is a group in Outlook",
     "displayName": "OutlookGroup101",
     "groupTypes": [
         "Unified"
@@ -60,6 +53,7 @@ Other resources that are created but not accessible through the API include:
 Learn more about Office 365 groups and the administrator experiences [here](https://support.office.com/en-us/article/Learn-about-Office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ## Security groups and mail-enabled security groups
+
 Security groups are for controlling user access to resources. By checking whether or not a user is a member of a security group, your app can make authorization decisions when that user is trying to access some secure resources in your app. Security groups can have users and other security groups as members.
 
 Mail-enabled security groups are used in the same way as security groups are, but with the added feature of a shared mailbox for the groups. Mail-enabled security groups can't be created through the API, but other group operations will still work here. Learn more in the [Manage mail-enabled security groups Exchange article](https://technet.microsoft.com/en-us/library/bb123521(v=exchg.160).aspx).
@@ -85,6 +79,7 @@ Mail-enabled security groups are used in the same way as security groups are, bu
 }
 ```
 ## Dynamic membership 
+
 All types of groups can have dynamic membership rules which automatically add or remove members from the group based on user properties. For example, a "Marketing employees" group would include every user with the department property set to "Marketing", so that new marketing employees are automatically added to the group and employees who leave the department are automatically removed from the group. This rule can be specified in a "membershipRule" field during group creation as `"membershipRule": 'user.department -eq "Marketing"'` GroupType must also include `"DynamicMembership"`. The following request creates a new Office 365 group for the marketing employees: 
 
 ```http
@@ -116,10 +111,10 @@ Office 365 groups in Yammer are used to facilitate user collaboration through Ya
 
 Using Microsoft Graph, you can perform the these common operations and more:
 
-| **Use cases**		   | **REST resources**	| **See also** |
+| **Use cases**  | **REST resources** | **See also** |
 |:---------------|:--------|:----------|
 | **Group object and methods** | | |
-| Create new groups, get existing groups, update the properties on groups, and delete groups. Currently, only security groups and Outlook groups can be created through the API. | [group](group.md) | [Create new groups](../api/group_post_groups.md) <br/> [List groups](../api/group_list.md) <br/> [Update groups](../api/group_update.md) <br/> [Delete groups](../api/group_delete.md) |
+| Create new groups, get existing groups, update the properties on groups, and delete groups. Currently, only security groups and groups in Outlook can be created through the API. | [group](group.md) | [Create new groups](../api/group_post_groups.md) <br/> [List groups](../api/group_list.md) <br/> [Update groups](../api/group_update.md) <br/> [Delete groups](../api/group_delete.md) |
 | **Group membership methods** | | |
 | List the members of a group, and add or remove members. | [user](user.md) <br/> [group](group.md)| [List members](../api/group_list_members.md) <br/> [Add member](../api/group_post_members.md) <br/> [Remove member](../api/group_delete_members.md)|
 | Check if a user is a member of a group, get all the groups the user is a member of. | [user](user.md) <br/> [group](group.md)| [Check member groups](../api/group_checkmembergroups.md) <br/> [Get member groups](../api/group_get_membergroups.md)|
