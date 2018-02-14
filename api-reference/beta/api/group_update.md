@@ -36,6 +36,7 @@ In the request body, supply the values for relevant fields that should be update
 |groupTypes|String collection|Specifies the type of group to create. Possible values are **Unified** to create an Office 365 group, or **DynamicMembership** for dynamic groups.  For all other group types, like security-enabled groups and email-enabled security groups, do not set this property.|
 |mailEnabled|Boolean|Specifies whether the group is mail-enabled. If the **securityEnabled** property is also **true**, the group is a mail-enabled security group; otherwise, the group is a Microsoft Exchange distribution group.|
 |mailNickname|String|The mail alias for the group. This property must be specified when a group is created. Supports $filter.|
+|preferredDataLocation|String| The preferred location to store data related to the group. The value can be changed by the tenant admin. |
 |securityEnabled|Boolean|Specifies whether the group is a security group. If the **mailEnabled** property is also true, the group is a mail-enabled security group; otherwise it is a security group. Must be **false** for Office 365 groups. Supports $filter..|
 |visibility|Boolean|Specifies the visibility of an Office 365 group. Possible values are: **Private**, **Public**, or empty (which is interpreted as **Public**).|
 

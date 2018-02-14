@@ -28,26 +28,27 @@ In the request body, supply the values for relevant fields that should be update
 
 | Property	   | Type	|Description|
 |:---------------|:--------|:----------|
-|assignedPlans|AssignedPlan|The collection of service plans associated with the tenant.                            **Notes**: not nullable.            |
-|city|String|            |
+|assignedPlans|AssignedPlan|The collection of service plans associated with the tenant. **Notes**: not nullable. |
+|city|String| City name of the address for the organization. |
 |companyLastDirSyncTime|DateTimeOffset|The time and date at which the tenant was last synced with the on-premise directory.|
-|country|String|            |
-|countryLetterCode|String|            |
-|deletionTimestamp|DateTimeOffset||
+|country|String| Country/region name of the address for the organization. |
+|countryLetterCode|String| Country/region abbreviation for the organization |
+|deletionTimestamp|DateTimeOffset| The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 would look like this: `'2014-01-01T00:00:00Z'` |
 |dirSyncEnabled|Boolean|**true** if this object is synced from an on-premises directory; **false** if this object was originally synced from an on-premises directory but is no longer synced; **null** if this object has never been synced from an on-premises directory (default).|
 |displayName|String|The display name for the tenant.|
-|marketingNotificationEmails|String|                                        **Notes**: not nullable.            |
+|isMultipleDataLocationsForServicesEnabled|Boolean| Indicates if multiple data location support is enabled for any service in the tenant. |
+|marketingNotificationEmails|String| **Notes**: not nullable.            |
 |objectType|String|A string that identifies the object type. For tenants the value is always “Company”. Inherited from [directoryObject](../resources/directoryobject.md).|
-|postalCode|String|            |
-|preferredLanguage|String|            |
+|postalCode|String| Postal code of the address for the organization. |
+|preferredLanguage|String| The preferred language for the organization. Should follow ISO 639-1 Code; for example "en". |
 |provisionedPlans|ProvisionedPlan|                                        **Notes**: not nullable.            |
 |provisioningErrors|ProvisioningError|                                        **Notes**: not nullable.            |
 |securityComplianceNotificationMails|String||
 |securityComplianceNotificationPhones|String||
-|state|String|            |
-|street|String|            |
+|state|String| State name of the address for the organization. |
+|street|String| Street name of the address for organization. |
 |technicalNotificationMails|String|                                        **Notes**: not nullable.            |
-|telephoneNumber|String|            |
+|telephoneNumber|String| Telephone number for the organization. |
 |verifiedDomains|VerifiedDomain|The collection of domains associated with this tenant.                            **Notes**: not nullable.            |
 
 Since the **organization** resource supports [extensions](../../../concepts/extensibility_overview.md), you can use the `PATCH` operation to 
