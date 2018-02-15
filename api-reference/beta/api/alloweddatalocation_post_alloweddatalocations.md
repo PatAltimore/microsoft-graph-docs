@@ -1,6 +1,6 @@
 # Create allowedDataLocation
 
-Enables multiple data location support for a service or sets an additional allowed data location for a service. 
+Enables multiple data location support for a service or sets an additional allowed data location for a service.  Calling the create allowedDataLocation API with a supported AppID enables multi-geo feature for the corresponding service and sets the first allowed data location for that service.
 
 ## Permissions
 One of the following permissions is required to call this API. To learn more, including how to choose permissions, see [Permissions](../../../concepts/permissions_reference.md).
@@ -23,13 +23,14 @@ POST /allowedDataLocations
 | Authorization  | Bearer {code}|
 
 ## Request body
-In the request body, supply a JSON representation of [allowedDataLocation](../resources/alloweddatalocation.md) object.
 
+In the request body, supply a JSON representation of [allowedDataLocation](../resources/alloweddatalocation.md) object.
 
 ## Response
 If successful, this method returns `201, Created` response code and [allowedDataLocation](../resources/alloweddatalocation.md) object in the response body.
 
 ## Example
+
 ##### Request
 Here is an example of the request.
 <!-- {
@@ -51,8 +52,10 @@ Content-length: 148
 }
 ```
 In the request body, supply a JSON representation of [allowedDataLocation](../resources/alloweddatalocation.md) object.
+
 ##### Response
-Here is an example of the response. Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
+
+Note: The response object shown here may be truncated for brevity. All of the properties will be returned from an actual call.
 <!-- {
   "blockType": "response",
   "truncated": true,
