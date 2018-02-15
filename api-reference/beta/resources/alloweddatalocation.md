@@ -6,9 +6,10 @@ Represents a multi-geo data location for a service. Tenant admins can enable all
 
 | Method		   | Return Type	|Description|
 |:---------------|:--------|:----------|
+|[Create allowedDataLocation](../api/alloweddatalocation_post_alloweddatalocations.md) | [allowedDataLocation](alloweddatalocation.md)	 | Enables multiple data location support for a service or sets an additional allowed data location for a service. |
 |[Get allowedDataLocation](../api/alloweddatalocation_get.md) | [allowedDataLocation](alloweddatalocation.md) |Read properties and relationships of allowedDataLocation object.|
-|[Update](../api/alloweddatalocation_update.md) | [allowedDataLocation](alloweddatalocation.md)	|Update allowedDataLocation object. |
-|[Delete](../api/alloweddatalocation_delete.md) | None |Delete allowedDataLocation object. |
+|[Update allowedDataLocation](../api/alloweddatalocation_update.md) | [allowedDataLocation](alloweddatalocation.md)	|Update allowedDataLocation object. |
+
 
 ## Properties
 | Property	   | Type	|Description|
